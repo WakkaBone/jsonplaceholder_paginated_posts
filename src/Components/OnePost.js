@@ -6,17 +6,21 @@ import {
   PostContent,
 } from "../Styled-Components";
 
-const OnePost = ({ id = "", title = "", body = "" }) => {
+const OnePost = ({ title = "", body = "" }) => {
+  const shortenTitle = (title) =>
+    title.length > 10 ? title.slice(0, 10).concat("...") : title;
+
+  const shortenContent = (content) =>
+    content.length > 50 ? content.slice(0, 50).concat("...") : content;
+
   return (
     <PostContainer>
       <PostHeaderImage />
       <PostHeading>
-        <h1>
-          {id} {title}
-        </h1>
+        <h1>{shortenTitle(title)}</h1>
       </PostHeading>
       <PostContent>
-        <p>{body}</p>
+        <p>{shortenContent(body)}</p>
       </PostContent>
     </PostContainer>
   );

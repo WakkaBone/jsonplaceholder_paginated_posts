@@ -1,5 +1,5 @@
 import React from "react";
-import { PaginationButton } from "../Styled-Components";
+import { PaginationButton, PaginationContainer } from "../Styled-Components";
 
 const Pagination = ({
   paginationMethods = {},
@@ -7,7 +7,7 @@ const Pagination = ({
   postsPerPage = 0,
 }) => {
   return (
-    <div>
+    <PaginationContainer>
       <PaginationButton onClick={paginationMethods.setNextPage}>
         Next page
       </PaginationButton>
@@ -17,7 +17,7 @@ const Pagination = ({
       >
         Previous page
       </PaginationButton>
-    </div>
+    </PaginationContainer>
   );
 };
 
