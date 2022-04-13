@@ -7,3 +7,9 @@
 body {
   background-color: #fffff4;
 }
+
+input,
+textarea {
+  border: none;
+  border-bottom: 1px solid gainsboro;
+}

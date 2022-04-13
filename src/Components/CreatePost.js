@@ -7,6 +7,7 @@ import {
   CreatePostForm,
   CreatePostInput,
   CreatePostTextarea,
+  CreatePostErrors,
 } from "../Styled-Components";
 
 const CreatePost = () => {
@@ -64,14 +65,29 @@ const CreatePost = () => {
           placeholder="Post content"
           {...createPostForm.getFieldProps("content")}
         />
-        <CreatePostAddButton type="submit">Add</CreatePostAddButton>
+        <CreatePostAddButton
+          disabled={
+            !createPostForm.values.title ||
+            !createPostForm.values.content ||
+            JSON.stringify(createPostForm.errors) !== JSON.stringify({})
+          }
+          type="submit"
+        >
+          Add
+        </CreatePostAddButton>
       </CreatePostForm>
-      {createPostForm.touched.title && createPostForm.errors.title
-        ? createPostForm.errors.title
-        : null}
-      {createPostForm.touched.content && createPostForm.errors.content
-        ? createPostForm.errors.content
-        : null}
+      <CreatePostErrors>
+        {createFormVisible &&
+        createPostForm.touched.title &&
+        createPostForm.errors.title ? (
+          <p style={{ margin: 0 }}>{createPostForm.errors.title}</p>
+        ) : null}
+        {createFormVisible &&
+        createPostForm.touched.content &&
+        createPostForm.errors.content ? (
+          <p style={{ margin: 0 }}>{createPostForm.errors.content}</p>
+        ) : null}
+      </CreatePostErrors>
     </CreatePostContainer>
   );
 };

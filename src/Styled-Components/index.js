@@ -41,23 +41,33 @@ export const CreatePostHeaderButton = styled.button`
 export const CreatePostForm = styled.form`
   max-height: ${(props) => (props.createFormVisible ? "500px" : "0px")};
   overflow: hidden;
-  width: 100%;
+  width: 80%;
   transition: max-height 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid gainsboro;
 `;
 export const CreatePostInput = styled.input`
-  width: 80%;
+  width: 100%;
 `;
 export const CreatePostTextarea = styled.textarea`
-  width: 80%;
+  width: 100%;
   resize: none;
 `;
-export const CreatePostAddButton = styled.button`
-  width: 80%;
+export const CreatePostAddButton = styled(CreatePostHeaderButton)`
+  width: 100%;
+  min-height: 2rem;
+  padding: 0.5%;
+  :disabled {
+    background-color: grey;
+    cursor: inherit;
+  }
 `;
-
+export const CreatePostErrors = styled.div`
+  color: red;
+  font-weight: bold;
+`;
 export const PostsListContainer = styled.main`
   padding: 1% 4%;
   display: flex;
