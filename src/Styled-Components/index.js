@@ -6,9 +6,37 @@ export const MainContainer = styled.div`
 `;
 
 export const CreatePostContainer = styled.div`
+  margin-top: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+export const CreatePostHeaderButton = styled.button`
+  align-items: center;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  vertical-align: baseline;
+  width: auto;
+}
+:hover,
+:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+}
 `;
 export const CreatePostForm = styled.form`
   max-height: ${(props) => (props.createFormVisible ? "500px" : "0px")};

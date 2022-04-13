@@ -4,7 +4,11 @@ import { LoadingSpinner, PostsListContainer } from "../Styled-Components";
 
 const PostsList = ({ posts = [], loadingPosts = false }) => {
   if (loadingPosts) {
-    return <LoadingSpinner />;
+    return (
+      <PostsListContainer>
+        <LoadingSpinner />
+      </PostsListContainer>
+    );
   }
   return (
     <PostsListContainer>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import {
   CreatePostAddButton,
+  CreatePostHeaderButton,
   CreatePostContainer,
   CreatePostForm,
   CreatePostInput,
@@ -42,9 +43,11 @@ const CreatePost = () => {
   return (
     <CreatePostContainer>
       <h1>
-        <button onClick={(e) => setCreateFormVisible(!createFormVisible)}>
+        <CreatePostHeaderButton
+          onClick={(e) => setCreateFormVisible(!createFormVisible)}
+        >
           {!createFormVisible ? "Create a new post" : "Hide the form"}
-        </button>
+        </CreatePostHeaderButton>
       </h1>
       <CreatePostForm
         createFormVisible={createFormVisible}
