@@ -9,7 +9,7 @@ import Pagination from "./Components/Pagination";
 import { MainContainer } from "./Styled-Components";
 
 function App() {
-  const postsPerPage = 9;
+  const postsPerPage = 6;
   const [firstPostIndex, setFirstPostIndex] = useState(1);
   const [loadingPosts, setLoadingPosts] = useState(false);
 

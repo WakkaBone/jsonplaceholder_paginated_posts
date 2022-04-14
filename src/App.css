@@ -13,3 +13,12 @@ textarea {
   border: none;
   border-bottom: 1px solid gainsboro;
 }
+
+a:link,
+a:visited {
+  color: #fa6400;
+}
+
+a:hover {
+  color: #fb8332;
+}

@@ -12,7 +12,8 @@ export const CreatePostContainer = styled.div`
   align-items: center;
 `;
 export const CreatePostHeaderButton = styled.button`
-  align-items: center;
+display: block;
+width: 50%;
   background-color: #fa6400;
   border: 1px solid transparent;
   border-radius: .25rem;
@@ -20,13 +21,11 @@ export const CreatePostHeaderButton = styled.button`
   color: #fff;
   cursor: pointer;
   font-weight: 600;
+  font-size: 2rem;
   min-height: 3rem;
   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
   transition: all 250ms;
-  -webkit-user-select: none;
-  vertical-align: baseline;
-  width: auto;
 }
 :hover,
 :focus {
@@ -37,6 +36,17 @@ export const CreatePostHeaderButton = styled.button`
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
 }
+@media (max-width: 650px){
+  width: 60%;
+}
+@media (max-width: 520px){
+  min-height: 2rem;
+  font-size: 1.5rem;
+  width: 70%;
+}
+@media (max-width: 350px){
+  width: 90%;
+}
 `;
 export const CreatePostForm = styled.form`
   max-height: ${(props) => (props.createFormVisible ? "500px" : "0px")};
@@ -46,7 +56,7 @@ export const CreatePostForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid gainsboro;
+  border: ${(props) => (!props.createFormVisible ? "0" : "1px")} solid gainsboro;
 `;
 export const CreatePostInput = styled.input`
   width: 100%;
@@ -58,6 +68,7 @@ export const CreatePostTextarea = styled.textarea`
 export const CreatePostAddButton = styled(CreatePostHeaderButton)`
   width: 100%;
   min-height: 2rem;
+  font-size: 1rem;
   padding: 0.5%;
   :disabled {
     background-color: grey;
@@ -68,12 +79,14 @@ export const CreatePostErrors = styled.div`
   color: red;
   font-weight: bold;
 `;
+
 export const PostsListContainer = styled.main`
   padding: 1% 4%;
   display: flex;
   max-width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   @media (max-width: 500px) {
     flex-direction: column;
     align-items: center;
@@ -111,15 +124,47 @@ export const PostHeaderImage = styled.div`
   border-bottom: 1px solid gainsboro;
   margin-bottom: 10px;
 `;
-export const PostHeading = styled.div``;
+export const PostHeading = styled.div`
+  margin-bottom: 10px;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+`;
 export const PostContent = styled.div``;
+export const TogglePostDescription = styled.button`
+  display: inline-block;
+  margin-left: 5px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.25rem;
+  :hover {
+    cursor: pointer;
+  }
+`;
+export const PostFooter = styled.div`
+  margin-top: 5%;
+  padding-top: 3%;
+  border-top: 1px solid gainsboro;
+  display: flex;
+  justify-content: space-between;
+`;
+export const PostManipulationContainer = styled.div`
+  display: flex;
+  font-size: 1.3rem;
+`;
 
 export const PaginationContainer = styled.footer`
   display: flex;
   justify-content: center;
 `;
-export const PaginationButton = styled.button`
+export const PaginationButton = styled(CreatePostAddButton)`
+  width: inherit;
   min-width: 10vw;
+  margin: 1%;
 `;
 
 const rotate = keyframes`
@@ -132,4 +177,10 @@ export const LoadingSpinner = styled.div`
   border-radius: 50%;
   border: 2px dashed black;
   animation: ${rotate} 2s linear infinite;
+`;
+
+export const HoverPointer = styled.div`
+  :hover {
+    cursor: pointer;
+  }
 `;

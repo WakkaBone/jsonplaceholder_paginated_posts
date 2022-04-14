@@ -43,16 +43,18 @@ const CreatePost = () => {
   const [createFormVisible, setCreateFormVisible] = useState(false);
   return (
     <CreatePostContainer>
-      <h1>
-        <CreatePostHeaderButton
-          onClick={(e) => setCreateFormVisible(!createFormVisible)}
-        >
-          {!createFormVisible ? "Create a new post" : "Hide the form"}
-        </CreatePostHeaderButton>
-      </h1>
+      <CreatePostHeaderButton
+        onClick={(e) => setCreateFormVisible(!createFormVisible)}
+      >
+        {!createFormVisible ? "Create a new post" : "Hide the form"}
+      </CreatePostHeaderButton>
       <CreatePostForm
         createFormVisible={createFormVisible}
-        onSubmit={createPostForm.handleSubmit}
+        onSubmit={(e) => {
+          e.preventDefault();
+          createPostForm.handleSubmit();
+          createPostForm.handleReset();
+        }}
       >
         <CreatePostInput
           type="text"
